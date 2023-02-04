@@ -1,0 +1,30 @@
+---
+title: "Week2_xaringan"
+author: "Ling Yi Cheung"
+output: 
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+date: "2023-02-03"
+---
+2
+---
+3
+---
+4
+---
+5
+---
+6
+---
+7
+---
+8
+---
+9
+---
+xaringan::inf_mr()
+
