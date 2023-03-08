@@ -1,5 +1,5 @@
 ---
-title: "Week2_xaringan"
+title: "Remote sensing: Synthetic Aperture Radar"
 author: "Ling Yi Cheung"
 output: 
   xaringan::moon_reader:
@@ -8,13 +8,54 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+    
 date: "2023-02-03"
 ---
-2
+class: left, middle
+background-image: url(image/base.jpg)
+background-size: cover
+
+#Sensors in Remote Sensing
+Sensors are instruments that collect data about earth processes or atmospheric components.
+
+- **Active sensors**: Provide own source of energy to illuminate object and its sensor measures reflected energy
+- **Passive sensors**: Detect source of energy that is naturally available from the Sun
+
+Synthetic Aperture Radar(SAR)is an example of Active sensor
+```{r echo=FALSE, out.width='65%', fig.align='center'}
+knitr::include_graphics('https://nisar.jpl.nasa.gov/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBLdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0736d27477e77bc972495be072ecfaae4e0b06a6/SAR1.jpg?disposition=attachment')
+```
+
 ---
-3
+#What is Synthetic Aperture Radar (SAR)?
+- World War II, the Radar was regarded as an invaluable defensive tool for identifying ships and planes in darkness and through cloud cover and fog.
+
+- Limited by technology at that time, a high-flying plane would have had to carry an antenna almost as big as a football field to provide sufficient resolution
+
+.pull-left[
+- Hence, an engineer named .my-style[Carl Wiley] solved the problem with creating **Simultaneous Buildup Doppler** --> The first SAR that...
+
+create detailed radar image using an antenna that is 1/100th the size of the football field-long antenna traditional radar would require to precisely analyze the frequency of the return signal
+]
+
+```{r echo=FALSE, out.width='30%', fig.align='right', fig.cap="Radar Station during WWII"}
+knitr::include_graphics('image/radar_station.webp')
+```
+
+
+
+
+
 ---
-4
+#Synthetic Aperture Radar (SAR)
+- An active microwave sensor onboard either space-borne or air-borne, illuminates the target with a focused, directional beam of energy, producing unique scattering effect (backscattering) depending on the orientation of the sensed objects @
+
+Backscatter: the portion of outgoing radar signal that the target redirects towards the radar
+Below shows a graph with different types of backscattering
+
+<center>
+<img src="https://www.researchgate.net/publication/342872604/figure/fig4/AS:912230619045894@1594504136070/Radar-backscattering-mechanisms-for-forest-wetland-and-soil-surfaces-a-b-g-h.png" width="400", height="320" / >
+<center>
 ---
 5
 ---
