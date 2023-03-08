@@ -1,0 +1,53 @@
+.title-slide h1,h2,h3{
+    color: white;
+    text-shadow: 4px 3px 0 #7A7A7A;
+}
+
+.my-style {
+  font-family: Gill Sans;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.0em;
+  color: brown;
+}
+
+
+.red { color: red; }
+
+.orange{ color: orange;}
+
+
+
+.small {
+  font-size: 70%;
+  line-height: 100%;
+}
+
+.big {
+  font-size: 120%;
+  line-height: 100%;
+}
+  
+.medium {
+  font-size: 80%;
+  line-height: 100%;
+}
+
+```{css, echo = F}
+.bg_karl {
+  position: relative;
+  z-index: 1;
+}
+
+.bg_karl::before {    
+      content: "";
+      background-image: url('image/base.jpeg');
+      background-size: cover;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.5;
+      z-index: -1;
+}
