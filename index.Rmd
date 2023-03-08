@@ -62,11 +62,8 @@ library(fontawesome)
 
 ### 2023-02-03
 
-
 `r fa("paper-plane", fill = "#FFFFFF")`[ucfaheu@ucl.ac.uk](mailto:ucfaheu@ucl.ac.uk)
 `r fa("github", fill = "#FFFFFF")` [Sophialyc](https://github.com/Sophialyc)
-
-
 
 ---
 #Sensors in Remote Sensing
