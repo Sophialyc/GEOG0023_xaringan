@@ -201,9 +201,10 @@ length is reduced
 
 - Coherent imaging: .orange[Phase] information and .orange[amplitude (brightness)] included in the complex-valued pixels
 
-```{r echo=FALSE, out.width='40%', fig.align='right'}
+```{r echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics('https://pub.mdpi-res.com/remotesensing/remotesensing-13-05010/article_deploy/html/images/remotesensing-13-05010-ag.png?1639127109')
 ```
+.small[Source:(https://www.mdpi.com/2072-4292/13/24/5010)]
 ]]]]
 
 ---
