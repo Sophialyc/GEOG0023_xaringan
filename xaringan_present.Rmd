@@ -12,7 +12,39 @@ output:
     seal: false
 date: "2023-02-03"
 ---
-class: center, title-slide, middle
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-all, echo=FALSE}
+#install.packages("countdown")
+library(countdown)
+library(xaringan)
+library(xaringanExtra)
+library(knitr)
+hook_source <- knitr::knit_hooks$get('source')
+knitr::knit_hooks$set(source = function(x, options) {
+  x <- stringr::str_replace(x, "^[[:blank:]]?([^*].+?)[[:blank:]]*#<<[[:blank:]]*$", "*\\1")
+  hook_source(x, options)
+})
+xaringanExtra::use_broadcast()
+xaringanExtra::use_freezeframe()
+xaringanExtra::use_scribble()
+#xaringanExtra::use_slide_tone()
+xaringanExtra::use_search(show_icon = TRUE, auto_search	=FALSE)
+xaringanExtra::use_freezeframe()
+xaringanExtra::use_clipboard()
+xaringanExtra::use_tile_view()
+xaringanExtra::use_panelset()
+xaringanExtra::use_editable(expires = 1)
+xaringanExtra::use_fit_screen()
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         
+  mute_unhighlighted_code = TRUE  
+)
+```
+class: center,inverse, title-slide, middle
 background-image: url("image/base.jpeg")
 background-size: cover
 
@@ -29,6 +61,12 @@ library(fontawesome)
 ## Ling Yi Cheung
 
 ### 2023-02-03
+
+
+`r fa("paper-plane", fill = "#FFFFFF")`[ucfaheu@ucl.ac.uk](mailto:ucfaheu@ucl.ac.uk)
+`r fa("github", fill = "#FFFFFF")` [Sophialyc](https://github.com/Sophialyc)
+
+
 
 ---
 #Sensors in Remote Sensing
@@ -51,7 +89,7 @@ knitr::include_graphics('https://nisar.jpl.nasa.gov/rails/active_storage/blobs/e
 - Limited by technology at that time, a high-flying plane would have had to carry an antenna almost as big as a football field to provide sufficient resolution
 
 .pull-left[
-- in 1951, An engineer named .my-style[**Carl Wiley**] solved the problem by developing:
+- An engineer named .my-style[**Carl Wiley**] solved the problem in 1951 by developing:
 
 .orange[**Simultaneous Buildup Doppler**] = The first SAR that...
 
@@ -65,6 +103,114 @@ knitr::include_graphics('image/radar_station.webp')
 ]
 ---
 #Principles of SAR imagery 1
+.panelset[
+
+.panel[
+.panel-name[Swath]
+
+.pull-left[
+- The width of the imaged scene in the range dimension
+- SAR satellites collects swaths of side-looking echoes at a sufficiently high range resolution and along-track sampling rate to form high resolution
+imagery 
+
+.small[Source:(https://topex.ucsd.edu/rs/sar_summary.pdf)]
+]
+
+```{r echo=FALSE, out.width='40%', fig.align='right'}
+knitr::include_graphics('https://www.researchgate.net/publication/259841321/figure/fig4/AS:641749705826306@1530016461482/Synthetic-aperture-radar-SAR-basic-geometry-SAR-is-preferred-over-real-aperture.png')
+```
+.small[Source:(https://www.researchgate.net/figure/Synthetic-aperture-radar-SAR-basic-geometry-SAR-is-preferred-over-real-aperture_fig4_259841321)
+]
+
+.panel[
+.panel-name[PRF]
+
+.pull-left[
+
+ - Pulsed radar system : 
+ - PRF = Pulse Repetition Frequency
+ - The number of pulses that are transmitted per second
+ 
+- Electromagnetic waves are emitted from the antenna in short bursts
+
+
+]
+```{r echo=FALSE, out.width='50%', fig.align='right', fig.cap="SAR imaging geometry"}
+knitr::include_graphics('https://au.mathworks.com/help/examples/radar/win64/SpaceborneSyntheticApertureRadarPerformancePredictionExample_01.png')
+```
+.small[Source:(https://www.mathworks.com/help/radar/ug/spaceborne-synthetic-aperture-radar-performance-prediction.html)
+]]
+
+.panel[
+.panel-name[2D/3D imaging]
+
+.pull-left[
+
+- 2D
+ - Range x Azimuth
+ - The measured signal is used to determine the radar cross-section (RCS)
+ - Then, the spatially resolved RCS data is used to form a 2D image
+ ]
+.pull-right[
+- 3D
+ - Range, Azimuth, and RCS coordinates
+ - The time-of-flight value becomes the 3rd axis in the RCS data set
+ - Can visualise as a 3D function in a polar coordinate system
+ ]
+ 
+```{r echo=FALSE, out.width='40%', fig.align='right'}
+knitr::include_graphics('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Synthetic_Aperture_Radar.svg/440px-Synthetic_Aperture_Radar.svg.png')
+```
+]
+
+.panel[
+.panel-name[Range resolution]
+
+.pull-left[
+
+- The nominal slant range resolution is  .orange[∆r = Cτ/2] 
+
+  where
+  τ is the pulse length, C is the speed of light and θ is the look angle.
+
+ - Slant Range : Distance measured along a line between the antenna and the target 
+]
+
+.pull-right[
+- The ground range resolution is geometrically related to the slant range resolution .orange[Rr = Cτ/2 sin θ]
+
+  where
+  τ is the pulse length, C is the speed of light and θ is the look angle.
+
+]]
+
+.panel[
+.panel-name[Azimuth resolution]
+
+- .orange[Ra = ρ tan θr  ≅ ρλ/L = λH/L cos θ]
+
+  where 
+  L is the length of radar antenna, ρ is the slant range, and λ is the wavelength of
+the radar.
+
+- It is independent of spacecraft height and improves as the antenna
+length is reduced
+
+- One could form a longer synthetic aperture by steering the transmitted radar beam so it follows the target as the spacecraft (aircraft) flies by =
+.orange[spotlight-mode SAR]
+
+.panel[
+.panel-name[Coherent imaging]
+
+- Coherent imaging: .orange[Phase] information and .orange[amplitude (brightness)] included in the complex-valued pixels
+
+```{r echo=FALSE, out.width='40%', fig.align='right'}
+knitr::include_graphics('https://pub.mdpi-res.com/remotesensing/remotesensing-13-05010/article_deploy/html/images/remotesensing-13-05010-ag.png?1639127109')
+```
+]]]]
+
+---
+#Principles of SAR imagery 1
 - SAR is an active **microwave** sensor on board, either space-borne or air-borne, that illuminates the target with a focused, directional beam of energy, producing unique scattering effect (.red[backscattering]) depending on the orientation of the sensed objects
 
 Backscatter: the portion of outgoing radar signal that the target redirects towards the radar
@@ -75,24 +221,6 @@ Below shows a graph with different types of backscattering
 
 .small[Source:(https://www.researchgate.net/figure/Radar-backscattering-mechanisms-for-forest-wetland-and-soil-surfaces-a-b-g-h_fig4_342872604)
 ]
----
-#Principles of SAR imagery 2
-.pull-left[
-
- - Pulsed radar system : PRF = Pulse Repetition Frequency
-- Slant Range : Distance measured along a line between the antenna and the target 
- 
-- Nadir : Scanning in direction of Beam center + aperture synthesis .orange[(holography)]
-
-- Coherent imaging: .orange[Phase] information and .orange[amplitude (brightness)] included in the complex-valued pixels
- ]
- 
-```{r echo=FALSE, out.width='50%', fig.align='right', fig.cap="SAR imaging geometry"}
-knitr::include_graphics('https://au.mathworks.com/help/examples/radar/win64/SpaceborneSyntheticApertureRadarPerformancePredictionExample_01.png')
-```
-.small[Source:(https://www.mathworks.com/help/radar/ug/spaceborne-synthetic-aperture-radar-performance-prediction.html)
-]
-
 ---
 class: inverse
 background-image: url("image/base2.jpeg")
@@ -194,6 +322,3 @@ Synthetic Aperture Radar: “Round the Clock Reconnaissance” (2022) Lockheed M
 Tempfli, K. et al. (2009) ‘Principles of remote sensing : an introductory textbook.’, in, pp. 56–85.
 
 User Guides - Sentinel-1 SAR - Definitions - Sentinel Online - Sentinel Online (no date). Available at: https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-1-sar/definitions (Accessed: 8 March 2023).
-
-
-

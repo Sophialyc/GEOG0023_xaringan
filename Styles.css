@@ -7,7 +7,7 @@
   font-family: Gill Sans;
   font-weight: bold;
   font-style: italic;
-  font-size: 1.0em;
+  font-size: 0.9em;
   color: brown;
 }
 
@@ -16,6 +16,7 @@
 
 .orange{ color: orange;}
 
+.white{ color: white; }
 
 
 .small {
