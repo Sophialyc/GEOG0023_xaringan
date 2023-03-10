@@ -11,6 +11,7 @@
   color: brown;
 }
 
+.yellow { color: yellow}
 
 .red { color: red; }
 
@@ -18,12 +19,21 @@
 
 .white{ color: white; }
 
+.blue{ color: blue}
+.medium {
+  font-size: 90%;
+  line-height: 100%;
+}
 
 .small {
   font-size: 70%;
   line-height: 100%;
 }
 
+.Extrabig {
+  font-size: 150%;
+  line-height: 100%;
+}
 .big {
   font-size: 120%;
   line-height: 100%;
@@ -49,6 +59,6 @@
       right: 0px;
       bottom: 0px;
       left: 0px;
-      opacity: 0.5;
+      opacity: 0.3;
       z-index: -1;
 }

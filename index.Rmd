@@ -99,7 +99,7 @@ knitr::include_graphics('image/radar_station.webp')
 .small[Source:(https://www.abc.net.au/news/2016-04-23/world-war-2-radar-station-jurien-bay-remnants-tell-story/7352324)
 ]
 ---
-#Principles of SAR imagery 1
+#Principles of SAR imagery 
 .panelset[
 
 .panel[
@@ -143,20 +143,19 @@ knitr::include_graphics('https://au.mathworks.com/help/examples/radar/win64/Spac
 
 .pull-left[
 
-- 2D
- - Range x Azimuth
- - The measured signal is used to determine the radar cross-section (RCS)
- - Then, the spatially resolved RCS data is used to form a 2D image
- ]
-.pull-right[
-- 3D
- - Range, Azimuth, and RCS coordinates
- - The time-of-flight value becomes the 3rd axis in the RCS data set
- - Can visualise as a 3D function in a polar coordinate system
- ]
+2D      
+* Range x Azimuth
+* The measured signal is used to determine the radar cross-section (RCS)
+* Then, the spatially resolved RCS data is used to form a 2D image
+
+3D     
+* Range, Azimuth, and RCS coordinates
+* 3rd axis : time-of-flight value
+* Can visualise as a 3D function in a polar coordinate system
+]
  
-```{r echo=FALSE, out.width='40%', fig.align='right'}
-knitr::include_graphics('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Synthetic_Aperture_Radar.svg/440px-Synthetic_Aperture_Radar.svg.png')
+```{r echo=FALSE, out.width='50%', fig.align='right'}
+knitr::include_graphics('https://www.researchgate.net/publication/334720282/figure/fig1/AS:801648851030017@1568139388781/Principle-of-the-inverse-synthetic-aperture-radar-for-2D-imaging-and-its-generalization.png')
 ```
 ]
 
@@ -205,20 +204,25 @@ length is reduced
 knitr::include_graphics('https://pub.mdpi-res.com/remotesensing/remotesensing-13-05010/article_deploy/html/images/remotesensing-13-05010-ag.png?1639127109')
 ```
 .small[Source:(https://www.mdpi.com/2072-4292/13/24/5010)]
-]]]]
+]]]
 
----
-#Principles of SAR imagery 1
-- SAR is an active **microwave** sensor on board, either space-borne or air-borne, that illuminates the target with a focused, directional beam of energy, producing unique scattering effect (.red[backscattering]) depending on the orientation of the sensed objects
+.panel[
+.panel-name[Backscattering]
 
-Backscatter: the portion of outgoing radar signal that the target redirects towards the radar
-Below shows a graph with different types of backscattering
-<center>
-<img src="https://www.researchgate.net/publication/342872604/figure/fig4/AS:912230619045894@1594504136070/Radar-backscattering-mechanisms-for-forest-wetland-and-soil-surfaces-a-b-g-h.png" width="400", height="300" / >
-<center>
+.pull-left[
+- SAR is an active .my-style[microwave] sensor on board, either space-borne or air-borne, that illuminates the target with a focused, directional beam of energy, producing unique scattering effect (.red[backscattering]) depending on the orientation of the sensed objects
+
+- Backscatter: the portion of outgoing radar signal that the target redirects towards the radar
+]
+
+```{r echo=FALSE, out.width='50%', fig.align='top' }
+knitr::include_graphics('https://www.researchgate.net/publication/342872604/figure/fig4/AS:912230619045894@1594504136070/Radar-backscattering-mechanisms-for-forest-wetland-and-soil-surfaces-a-b-g-h.png')
+```
 
 .small[Source:(https://www.researchgate.net/figure/Radar-backscattering-mechanisms-for-forest-wetland-and-soil-surfaces-a-b-g-h_fig4_342872604)
 ]
+]]
+
 ---
 class: inverse
 background-image: url("image/base2.jpeg")
@@ -231,17 +235,34 @@ SAR image: Large synthetic aperture created by combining multiple viewpoints of 
 
 .center[<iframe width="560" height="315" src="https://www.youtube.com/embed/sGCJZtJVTWQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>]
 ---
-#Development onf SAR
-- The technology of SAR was put to non-military aspects since the 1970s...
-
-```{r, results='asis', echo=FALSE}
+#Development on SAR
+```{r echo=FALSE, results='asis', out.wodthecho=FALSE}
 xfun::file_string('SAR_application.html')
 ```
+.center[The technology of SAR was put to non-military aspects since the 1970s...]
+
+---
+#Applications of SAR in research 
+.orange[*Forest mapping and monitoring with interferometric synthetic aperture radar (InSAR)*] 
+
+.my-style[H. Balzter], 2001
+- Interferometric SAR (InSAR) was applied to monitor variations in biomass in forest ecosystems
+
+- through the interferometric information about the imaging geometry --> improve biomass retrieval from radar backscatter 
+
+- The fringe frequencies of the interferogram --> correct radar backscatter intensity for terrain effects
+
+.orange[*Marine oil spill detection using Synthetic Aperture Radar over Indian Ocean*]
+
+.my-style[Naz, S. et al], 2021
+-  Oil spill detection and monitoring over Indian Ocean using Sentinel-1  --> accurate at wind speed of 3 to 9 m/s for all events
+
+- SAR overcomes constraints of other RS satellites such as limited to cloud cover, sun glint
 
 ---
 class: inverse
 background-image: url(https://workshop.caltech.edu/SpaceborneSAR/img/Galapagos_Islands_in_the_Pacific_Ocean_mob.jpg)
-#Some Pros and Cons of SAR imagery
+#Pros and Cons of SAR imagery
 
  
 .big[.pull-left[     😄
@@ -280,25 +301,24 @@ Speckle Noise effects
 ]]
 ---
 class: inverse, bg_karl
-background-image: url(image/base.jpeg)
+background-image: url(image/base2.jpeg)
 background-size: cover
 
-#Summary of SAR imagery
+# Future trends of SAR imagery
 
-.big[
-- Coherent Radar System
+.Extrabig[
 
-- Operates in Microwave portion of electromagnetic spectrum
+- High resolution imagery that is independent of solar illumination and adverse weather conditions 
 
-- Independent of solar illumination and adverse weather conditions
+--> .yellow[Potential for nighttime imagery in the future]
+
+--> .yellow[SAR satellites could be used in nighttime research and data collection with ability to capture nocturnal changes and information]
+
 
 - Sensitive to small changes on the order of the radar wavelength 
 
-- Utilise the time delay of the backscattered signals
-
-- High resolution imagery
-
-- Constrained by various limitations: geometric distortion, system nonlinear effects, Speckle Noise effects]
+--> .yellow[SAR satellites are valuable in detecting sudden events and crisis situations that require rapid response.]
+]
 ---
 #Reference
 
@@ -306,13 +326,18 @@ ABC News (2016) ‘World War II radar station reveals tales of conflict in WA’
 
 Aplin, P. (2004) ‘Remote sensing: land cover’, Progress in Physical Geography: Earth and Environment, 28(2), pp. 283–293. Available at: https://doi.org/10.1191/0309133304pp413pr.
 
+Balzter, H. (2001) “Forest mapping and monitoring with interferometric synthetic aperture radar (INSAR),” Progress in Physical Geography, 25(2), pp. 159–177. Available at: https://doi.org/10.1191/030913301666986397. 
+
 Earth Science Data Systems, N. (2020) What is Synthetic Aperture Radar?, Earthdata. Earth Science Data Systems, NASA. Available at: https://www.earthdata.nasa.gov/learn/backgrounders/what-is-sar (Accessed: 8 March 2023).
 
 Laurencelle, J. (2019) What is SAR?, ASF. Available at: https://asf.alaska.edu/information/sar-information/what-is-sar/ (Accessed: 8 March 2023).
 
-Ottinger, M. and Kuenzer, C. (2020) ‘Spaceborne L‐Band Synthetic Aperture Radar Data for Geoscientific Analyses in Coastal Land Applications: A Review’, Remote Sensing, 12, p. 2228. Available at: https://doi.org/10.3390/rs12142228.
 ---
 #Reference
+Naz, S. et al. (2021) “Marine oil spill detection using synthetic aperture radar over Indian Ocean,” Marine Pollution Bulletin, 162, p. 111921. Available at: https://doi.org/10.1016/j.marpolbul.2020.111921. 
+
+Ottinger, M. and Kuenzer, C. (2020) ‘Spaceborne L‐Band Synthetic Aperture Radar Data for Geoscientific Analyses in Coastal Land Applications: A Review’, Remote Sensing, 12, p. 2228. Available at: https://doi.org/10.3390/rs12142228.
+
 Spaceborne Synthetic Aperture Radar Performance Prediction - MATLAB & Simulink (no date). Available at: https://www.mathworks.com/help/radar/ug/spaceborne-synthetic-aperture-radar-performance-prediction.html (Accessed: 8 March 2023).
 
 Synthetic Aperture Radar: “Round the Clock Reconnaissance” (2022) Lockheed Martin. Available at: https://www.lockheedmartin.com/en-us/news/features/history/sar.html (Accessed: 8 March 2023).
